@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">📊 Admin Dashboard</h2>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-center p-3 shadow-sm">
+            <h5>Total Bookings</h5>
+            <h3>{{ total_bookings }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center p-3 shadow-sm">
+            <h5>Confirmed</h5>
+            <h3 class="text-success">{{ confirmed_bookings }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center p-3 shadow-sm">
+            <h5>Pending</h5>
+            <h3 class="text-warning">{{ pending_bookings }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-center p-3 shadow-sm">
+            <h5>Total Revenue</h5>
+            <h3>₹{{ total_revenue }}</h3>
+        </div>
+    </div>
+</div>
+
+<div class="card p-3 shadow-sm">
+    <h5>🎟️ Most Booked Seats</h5>
+    <ul>
+        {% for seat in most_booked_seats %}
+            <li>{{ seat.seat_number }}</li>
+        {% empty %}
+            <li>No bookings yet</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

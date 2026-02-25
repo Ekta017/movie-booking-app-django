@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Seats</title>
+
+    <style>
+        .seat {
+            width: 45px;
+            height: 45px;
+            margin: 5px;
+            border-radius: 6px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .available { background-color: green; }
+        .booked { background-color: red; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+<h2>Select Seats for {{ movie.title }}</h2>
+
+<div>
+    {% for seat in seats %}
+        {% if seat.is_booked %}
+            <button class="seat booked" disabled>
+                {{ seat.seat_number }}
+            </button>
+        {% else %}
+            <a href="/booking/create/{{ seat.id }}/">
+                <button class="seat available">
+                    {{ seat.seat_number }}
+                </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<br>
+<p>
+🟢 Available &nbsp;&nbsp;
+🔴 Booked
+</p>
+
+</body>
+</html>

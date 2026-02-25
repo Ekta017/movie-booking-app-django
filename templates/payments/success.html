@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Booking Confirmed{% endblock %}
+
+{% block content %}
+<div class="alert alert-success text-center p-4">
+    <h3>🎉 Booking Confirmed!</h3>
+    <p>Your seat <strong>{{ booking.seat.seat_number }}</strong> is booked.</p>
+    <p>📧 A confirmation email has been sent to your registered email.</p>
+
+    <a href="/" class="btn btn-primary mt-3">Go Back to Movies</a>
+</div>
+{% endblock %}

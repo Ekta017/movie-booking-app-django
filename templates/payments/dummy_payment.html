@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Dummy Payment{% endblock %}
+
+{% block content %}
+<div class="card p-4 shadow-sm mx-auto" style="max-width: 400px;">
+    <h4 class="mb-3">Dummy Payment</h4>
+
+    <p><strong>Seat:</strong> {{ booking.seat.seat_number }}</p>
+    <p><strong>Amount:</strong> ₹300</p>
+
+    <a href="{% url 'payment_success' booking.id %}"
+       class="btn btn-success w-100">
+        Pay Now
+    </a>
+</div>
+{% endblock %}
