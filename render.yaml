@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: movie-booking-app
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn bookmyshow.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: bookmyshow.settings

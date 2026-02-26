@@ -138,7 +138,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # EMAIL_HOST_USER = 'ektapardeshi8@gmail.com'
 # EMAIL_HOST_PASSWORD = 'dxpr itzs jcas mbqm'
 
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 RAZORPAY_KEY_ID = 'rzp_test_xxxxx'
 RAZORPAY_KEY_SECRET = 'xxxxx'
