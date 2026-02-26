@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-sjx8p%xy_%n6msmg%fu3xf7v(blv$d_zhc^4mvrqcoej+=z8b%"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+import os
 
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 
 # Application definition
@@ -143,7 +143,12 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 RAZORPAY_KEY_ID = 'rzp_test_xxxxx'
 RAZORPAY_KEY_SECRET = 'xxxxx'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    "movie-booking-app-django.onrender.com",
+    ".onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 # -------------------------------
 # Auto-create superuser (Render Free workaround)
