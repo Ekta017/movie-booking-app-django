@@ -12,7 +12,11 @@ def movie_list(request):
     if language:
         movies = movies.filter(language=language)
 
+    genres = Movie.objects.values_list('genre', flat=True).distinct()
+    languages = Movie.objects.values_list('language', flat=True).distinct()
 
     return render(request, 'movies/movie_list.html', {
-        'movies': movies
+        'movies': movies,
+        'genres': genres,
+        'languages': languages
     })
